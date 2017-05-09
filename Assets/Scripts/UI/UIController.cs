@@ -10,7 +10,7 @@ using UnityEngine.UI;
 /// </summary>
 public class UIController : MonoBehaviour
 {
-    public BackPack backPack;
+    public Backpack backPack;
     public OnCancel onCancel;
 
     public OnStart onStart;

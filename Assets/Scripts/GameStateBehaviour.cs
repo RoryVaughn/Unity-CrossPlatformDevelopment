@@ -36,7 +36,7 @@ public class InitState : GameState
 {
     public override void OnEnter(GameStateBehaviour context)
     {
-        CURRENT.ToState(context, RUNNING_STATE);
+        //CURRENT.ToState(context, RUNNING_STATE);
     }
 }
 
