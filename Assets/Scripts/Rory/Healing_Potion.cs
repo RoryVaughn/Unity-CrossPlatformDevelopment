@@ -2,20 +2,26 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Weapon/Pistol")]
-public class Pistol : Weapon
+[CreateAssetMenu(menuName = "Item/Potion/Health")]
+public class Healing_Potion : Potion
 {
-    public Sprite Bullet;
-    public string Rory;
-
+    int Health;
+    public enum PotionPrefix
+    {
+        Light,
+        Medium,
+        Strong,
+    }
     public override void Initialize(GameObject obj)
     {
-        throw new System.NotImplementedException();
+        this.GUID = this.GetHashCode();
+        this.Name = Prefix + " " + this.Name;
+        TargetSlot = InventorySlot.MainHand;
     }
 
     public override void Execute(GameObject a)
     {
-        
+        throw new System.NotImplementedException();
     }
 
     public override InventorySlot TargetSlot { get; set; }
@@ -35,3 +41,7 @@ public class Pistol : Weapon
         throw new System.NotImplementedException();
     }
 }
+
+
+
+

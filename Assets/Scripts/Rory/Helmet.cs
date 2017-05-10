@@ -2,23 +2,34 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Item/Weapon/Pistol")]
-public class Pistol : Weapon
+[CreateAssetMenu(menuName = "Item/Armor/Helmet")]
+public class Helmet : Armor
 {
-    public Sprite Bullet;
-    public string Rory;
 
+    public enum ArmorSuffix
+    {
+        Armadillo,
+        Tiger,
+        Bear,
+    }
+
+
+    public ArmorSuffix Suffix;
     public override void Initialize(GameObject obj)
     {
-        throw new System.NotImplementedException();
+        owner = obj;
+        this.GUID = this.GetHashCode();
+        this.Name += " of the " + Suffix;
+        TargetSlot = InventorySlot.Head;
     }
 
     public override void Execute(GameObject a)
     {
-        
+        throw new System.NotImplementedException();
     }
 
     public override InventorySlot TargetSlot { get; set; }
+
     public override bool Equip(InventorySlot targetSlotRequest)
     {
         if (targetSlotRequest != TargetSlot)

@@ -8,9 +8,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb37bc488fcb58d4a8eb96876f4c2a1d, type: 3}
-  m_Name: Player
+  m_Script: {fileID: 11500000, guid: 502abf591baa72e43a2e2ca3db3bd18d, type: 3}
+  m_Name: Elixir
   m_EditorClassIdentifier: 
-  _stats: {fileID: 11400000, guid: ba68dc0f824c9974abbc85ef84779cf2, type: 2}
-  Name: Teacher
-  UnitType: 1
+  GUID: 0
+  Name: Elixir
+  sprite: {fileID: 21300000, guid: 11fbef8453e192c49b0e4d9c16f96a55, type: 3}
+  Prefix: 1

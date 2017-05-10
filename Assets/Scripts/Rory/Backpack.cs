@@ -2,31 +2,65 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Backpack : MonoBehaviour {
-
+public class Backpack : MonoBehaviour
+{
 
     int space;
     public List<Item> InspectorItems;
     public List<Item> Items;
-    public GameObject itemBehaviour;
+    public GameObject item_GameObject;
+
+    public Item InspectorArmorItem;
+    private Item ArmorItem;
+
+    public Item InspectorPotionItem;
+    private Item PotionItem;
+
+    public int currentitem;
+
 
     // Use this for initialization
-    void Start () {
+    void Start()
+    {
+        SetPotion();
+        SetArmor();
 
-        foreach (var item in InspectorItems)
+    }
+
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            var runtimeItem = Instantiate(item);
-            Items.Add(runtimeItem);        
+            currentitem++;
+            if (currentitem >= Items.Count)
+            {
+                currentitem = 0;
+            }
+            item_GameObject.GetComponent<SpriteRenderer>().sprite = Items[currentitem].sprite;
+
         }
-
-        itemBehaviour.GetComponent<SpriteRenderer>().sprite = Items[3].sprite;
+        if (Input.GetKeyDown(KeyCode.A))
+        {
+            SetArmor();
+        }
     }
 
-    
-	
-	// Update is called once per frame
-	void Update () {
-	
-
+    void SetArmor()
+    {
+        ArmorItem = Instantiate(InspectorArmorItem);
+        ArmorItem.Initialize(gameObject);
+        Items.Add(ArmorItem);
+        item_GameObject.GetComponent<SpriteRenderer>().sprite = ArmorItem.sprite;
     }
+    void SetPotion()
+    {
+        PotionItem = Instantiate(InspectorPotionItem);
+        PotionItem.Initialize(gameObject);
+        Items.Add(PotionItem);
+        item_GameObject.GetComponent<SpriteRenderer>().sprite = PotionItem.sprite;
+    }
+
+
+
+
 }
